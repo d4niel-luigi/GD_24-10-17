@@ -35,22 +35,22 @@ handleBookingForm(
   const errors = [];
   
   if (!bookingData.name || !bookingData.name.trim()) {
-    errors.push('A név megadása kötelező!');
+    errors.push('A név megadását nem hagyhatja ki!');
   }
 
   const emailValidation = /.+@.+\..+/;
   if (!emailValidation.test(bookingData.email)) {
-    errors.push('Érvénytelen email cím!');
+    errors.push('Az email cím formátuma nem helyes!');
   }
 
   const currentDate = new Date();
   if (!bookingData.date || new Date(bookingData.date) < currentDate) {
-    errors.push('Érvénytelen dátum!');
+    errors.push('A dátum érvénytelen!');
   }
 
   const guests = parseInt(bookingData.guests, 10);
   if (isNaN(guests) || guests < 1 || guests > 10) {
-    errors.push('1 és 10 vendég között lehet foglalni!');
+    errors.push('Legalább 1 de maximum 10 vendéget tud csak foglalni!');
   }
 
   if (errors.length > 0) {
