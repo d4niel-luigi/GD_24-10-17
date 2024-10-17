@@ -18,7 +18,7 @@ export class AppController {
   @Render('success')
   showSuccessPage() {
     return {
-      message: 'Rendben',
+      message: 'Köszönjük hogy nálunk foglalt!',
     };
   }
   @Get('booking')
